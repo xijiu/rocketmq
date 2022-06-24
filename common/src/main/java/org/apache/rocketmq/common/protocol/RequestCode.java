@@ -194,4 +194,7 @@ public class RequestCode {
     public static final int GET_ALL_PRODUCER_INFO = 328;
 
     public static final int DELETE_EXPIRED_COMMITLOG = 329;
+
+    public static final int NOTIFY_CLIENT_TOPIC_ROUTE_CHANGED = 330;
+
 }

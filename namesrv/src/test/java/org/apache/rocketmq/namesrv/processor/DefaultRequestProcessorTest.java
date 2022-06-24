@@ -38,6 +38,7 @@ import org.apache.rocketmq.common.protocol.header.namesrv.PutKVConfigRequestHead
 import org.apache.rocketmq.common.protocol.header.namesrv.RegisterBrokerRequestHeader;
 import org.apache.rocketmq.common.protocol.route.BrokerData;
 import org.apache.rocketmq.namesrv.NamesrvController;
+import org.apache.rocketmq.namesrv.routeinfo.DefaultTopicRouteListener;
 import org.apache.rocketmq.namesrv.routeinfo.RouteInfoManager;
 import org.apache.rocketmq.remoting.exception.RemotingCommandException;
 import org.apache.rocketmq.remoting.netty.NettyServerConfig;
@@ -67,9 +68,8 @@ public class DefaultRequestProcessorTest {
     public void init() throws Exception {
         namesrvConfig = new NamesrvConfig();
         nettyServerConfig = new NettyServerConfig();
-        routeInfoManager = new RouteInfoManager();
-
         namesrvController = new NamesrvController(namesrvConfig, nettyServerConfig);
+        routeInfoManager = new RouteInfoManager();
 
         Field field = NamesrvController.class.getDeclaredField("routeInfoManager");
         field.setAccessible(true);
